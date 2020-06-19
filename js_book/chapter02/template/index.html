@@ -14,11 +14,18 @@
 
         <div class="frame__inner">
             <script>
-                const week = ['日', '月', '火', '水', '木', '金', '土'];
-                let today = new Date();
+                const words = {
+                    'Apple': 'りんご',
+                    'Orange': 'オレンジ',
+                    'Grapes': 'グレープ'
+                }
 
-                let week_jp = week[today.getDay()];
-                document.write(`今日は、${week_jp}曜日です`);
+                let q = prompt('英単語を入力してください');
+                if (words[q]) {
+                    document.write(`${q}の日本語訳は${words[q]}です`);
+                } else {
+                    document.write('その単語は登録されていません');
+                }
             </script>
         </div>
     </div>
