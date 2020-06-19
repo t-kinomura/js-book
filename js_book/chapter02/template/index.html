@@ -14,16 +14,12 @@
 
         <div class="frame__inner">
             <script>
-                const book = '吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていたことだけは記憶している。';
-                
-                let keyword = prompt('検索したい文字は？');
-                let pos = book.indexOf(keyword);
-                if (pos >= 0) {
-                    document.write(`<p>${book}</p>`);
-                    document.write(`<p>${keyword}は、${pos + 1}文字目に見つかりました`);
-                } else {
-                    document.write('見つかりませんでした');
+                const getTax = (price, tax = 10) => {
+                    return Math.round(price * (tax / 100));
                 }
+
+                let tax = getTax(3450);
+                document.write(tax);
             </script>
         </div>
     </div>
