@@ -14,12 +14,31 @@
 
         <div class="frame__inner">
             <script>
-                const getTax = (price, tax = 10) => {
-                    return Math.round(price * (tax / 100));
+                class Item{
+                    constructor(price) {
+                        this.tax = 10; // 消費税は　10％
+                        if (isFinite(price)) {
+                            this.price = price;
+                        } else {
+                            this.price = 0;
+                        }
+                    }
+
+                    getTax(){
+                        return Math.round(this.price * (this.tax / 100));
+                    }
                 }
 
-                let tax = getTax(3450);
-                document.write(tax);
+                const price = parseInt(prompt('商品の金額を入力してください'));
+                const item = new Item(price);
+
+                let tax = item.getTax();
+
+                if (tax) {
+                    document.write(`${price}円の消費税は、${tax}円です`);
+                } else {
+                    document.write('数字を入力してください');
+                }
             </script>
         </div>
     </div>
