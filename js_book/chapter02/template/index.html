@@ -14,30 +14,23 @@
 
         <div class="frame__inner">
             <script>
-                class Item{
-                    constructor(price) {
-                        this.tax = 10; // 消費税は　10％
-                        if (isFinite(price)) {
-                            this.price = price;
-                        } else {
-                            this.price = 0;
-                        }
+                const locations = [
+                    {
+                        "name": "国会議事堂",
+                        "address": "東京都千代田区永田町１丁目７-１"
+                    },
+                    {
+                        "name": "札幌時計台",
+                        "address": "札幌市中央区北1条西2丁目"
+                    },
+                    {
+                        "name": "首里城",
+                        "address": "沖縄県那覇市首里金城町１丁目２"  
                     }
+                ];
 
-                    getTax(){
-                        return Math.round(this.price * (this.tax / 100));
-                    }
-                }
-
-                const price = parseInt(prompt('商品の金額を入力してください'));
-                const item = new Item(price);
-
-                let tax = item.getTax();
-
-                if (tax) {
-                    document.write(`${price}円の消費税は、${tax}円です`);
-                } else {
-                    document.write('数字を入力してください');
+                for (let i = 0; i < locations.length; i++) {
+                    document.write(locations[i].name + '/' + locations[i].address + '<br>');
                 }
             </script>
         </div>
