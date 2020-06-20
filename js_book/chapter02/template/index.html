@@ -13,9 +13,14 @@
         <h1 class="frame__title">JavaScript</h1>
 
         <div class="frame__inner">
-            <div id="timer"></div>
+            <p id="answer"></p>
 
-            <script src="timer.js"></script>
+            <script type="module">
+                import { sum } from './math.js';
+
+                let answer = sum(2, 8);
+                document.getElementById('answer').innerHTML = answer;
+            </script>
         </div>
     </div>
 </body>
