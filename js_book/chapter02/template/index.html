@@ -13,12 +13,19 @@
         <h1 class="frame__title">JavaScript</h1>
 
         <div class="frame__inner">
-            <button id="buy">決済する</button>
-
+            <p>メールアドレス：<input type="email" name="email" id="">
+            <span style="color:#f33"></span></p>
+            
             <script>
-                const btn = document.getElementById('buy');
-                btn.addEventListener('click', () => {
-                    btn.disabled = true;
+                const email = document.querySelector('input[name="email"]');
+                email.addEventListener('blur', () => {
+                    if (email.value === '') {
+                        email.style.backgroundColor = '#fcc';
+                        email.nextElementSibling.innerHTML = '※　メールアドレスをご記入ください';
+                    } else {
+                        email.style.backgroundColor = '#fff'
+                        email.nextElementSibling.innerHTML = '';
+                    }
                 });
             </script>
         </div>
