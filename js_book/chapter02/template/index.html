@@ -15,15 +15,7 @@
         <div class="frame__inner">
             <div id="timer"></div>
 
-            <script>
-                let timer = () => {
-                    let now = new Date();
-                    document.getElementById('timer').innerHTML
-                    = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
-                }
-
-                let timerID = setInterval(timer, 1000);
-            </script>
+            <script src="timer.js"></script>
         </div>
     </div>
 </body>
