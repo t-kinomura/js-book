@@ -13,38 +13,29 @@
         <h1 class="frame__title">JavaScript</h1>
 
         <div class="frame__inner">
-            <div id="output"></div>
+            <div>
+                <input type="text" id="email" name="email">
+            </div>
+            <button id="save">メールアドレスを保存する</button>
 
             <script type="module">
-                //　読み込むjsonファイル
-                const url = 'locations.json';
-
-                const getLocations = () => {
-                    return new Promise(function (resolve, reject) {
-                        // XMLHttpRequestオブジェクトを定義
-                        let xhr = new XMLHttpRequest();
-
-                        //jsonファイルへのパスを指定
-                        xhr.open('GET', url);
-                        xhr.send();
-
-                        xhr.onreadystatechange = () => {
-                            if (xhr.readyState === 4 && xhr.status === 200) {
-                                var result = JSON.parse(xhr.responseText);
-
-                                resolve(result);
-                            }
+                const getCookie = (key) => {
+                    let cookies = doucment.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        let k = document.cookie[i].split('=');
+                        if (k[0] === key) {
+                            return decodeURIComponent(k[1]);
                         }
-                    });
-                }
-
-                getLocations().then(function(locations) {
-                    let html = '';
-                    for (let i = 0; i < locations.length; i++) {
-                        html += locations[i].name + '/' + locations[i].address + "<br>"
                     }
-                    document.getElementById('output').innerHTML = html;
-                })
+                    
+                    return '';
+                }
+                document.getElementById('save').addEventListener("click", () => {
+                    let email = encodeURIComponent(document.getElementById('email').value);
+                    document.cookie = 'email=' + email + '; max-age=3600';
+                });
+
+                document.getElementById('email').value = getCookie('email');
             </script>
         </div>
     </div>
