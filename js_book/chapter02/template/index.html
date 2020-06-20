@@ -13,13 +13,38 @@
         <h1 class="frame__title">JavaScript</h1>
 
         <div class="frame__inner">
-            <p id="answer"></p>
+            <div id="output"></div>
 
             <script type="module">
-                import { sum } from './math.js';
+                //　読み込むjsonファイル
+                const url = 'locations.json';
 
-                let answer = sum(2, 8);
-                document.getElementById('answer').innerHTML = answer;
+                const getLocations = () => {
+                    return new Promise(function (resolve, reject) {
+                        // XMLHttpRequestオブジェクトを定義
+                        let xhr = new XMLHttpRequest();
+
+                        //jsonファイルへのパスを指定
+                        xhr.open('GET', url);
+                        xhr.send();
+
+                        xhr.onreadystatechange = () => {
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                var result = JSON.parse(xhr.responseText);
+
+                                resolve(result);
+                            }
+                        }
+                    });
+                }
+
+                getLocations().then(function(locations) {
+                    let html = '';
+                    for (let i = 0; i < locations.length; i++) {
+                        html += locations[i].name + '/' + locations[i].address + "<br>"
+                    }
+                    document.getElementById('output').innerHTML = html;
+                })
             </script>
         </div>
     </div>
