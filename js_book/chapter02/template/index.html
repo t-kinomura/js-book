@@ -13,8 +13,16 @@
         <h1 class="frame__title">JavaScript</h1>
 
         <div class="frame__inner">
+            <div id="timer"></div>
+
             <script>
-                location.href = 'https://qiita.com/tedkuma/items/67876e6be3369b0e730c';
+                let timer = () => {
+                    let now = new Date();
+                    document.getElementById('timer').innerHTML
+                    = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+                }
+
+                let timerID = setInterval(timer, 1000);
             </script>
         </div>
     </div>
