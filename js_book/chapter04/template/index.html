@@ -14,8 +14,21 @@
 
         <div class="frame__inner">
             <!-- ここに、JavaScriptを記述します -->
+            <div id="app">
+                {{ message }}
+            </div>
         </div>
     </div>
+
+    <script src="../../../../Downloads/vue.js"></script>
+    <script>
+        let app = new Vue ({
+            el: "#app",
+            data: {
+                message: "Vue.jsを勉強しています"
+            }
+        });
+    </script>
 </body>
 
 </html>
