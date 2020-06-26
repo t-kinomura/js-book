@@ -6,6 +6,11 @@
     <title></title>
 
     <link rel="stylesheet" href="../assets/style.css">
+    <style>
+    .error {
+        color: red;
+    }
+    </style>
 </head>
 
 <body>
@@ -15,7 +20,7 @@
         <div class="frame__inner">
             <!-- ここに、JavaScriptを記述します -->
             <div id="app">
-                {{ message }}
+                <p v-bind:class="error_class">赤文字で警告します</p>
             </div>
         </div>
     </div>
@@ -25,7 +30,7 @@
         let app = new Vue ({
             el: "#app",
             data: {
-                message: "Vue.jsを勉強しています"
+                error_class: "error"
             }
         });
     </script>
