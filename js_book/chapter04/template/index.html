@@ -26,9 +26,7 @@
         <div class="frame__inner">
             <!-- ここに、JavaScriptを記述します -->
             <div id="app">
-                <transition appear>
-                    <div>{{ message }}</div>
-                </transition>
+                <input type="number" v-model="number"> = {{ number }}
             </div>
         </div>
     </div>
@@ -38,7 +36,7 @@
         let app = new Vue ({
             el: "#app",
             data: {
-                message: "Vue.jsを勉強しています"
+                number: 999
             }
         });
     </script>
