@@ -26,21 +26,22 @@
         <div class="frame__inner">
             <!-- ここに、JavaScriptを記述します -->
             <div id="app">
-                <ul v-for="week of weeks" :key="week">
-                    <li>{{ week }}</li>
-                </ul>
+                <button @click="checkClick" :disabled="clicked">ボタン</button>
             </div>
         </div>
     </div>
 
     <script src="vue.js"></script>
     <script>
-        let today = new Date();
-        let hour = today.getHours();
         let app = new Vue ({
             el: "#app",
             data: {
-                weeks: ['日', '月', '火', '水', '木', '金', '土']
+                clicked: false
+            },
+            methods: {
+                checkClick: function() {
+                    this.clicked = true
+                }
             }
         });
     </script>
